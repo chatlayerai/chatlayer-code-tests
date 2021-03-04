@@ -1,5 +1,16 @@
+const removeDelimitersCreator = require("./consts/removeDelimeters");
+const stringMatcherRegexCreator = require("./consts/stringMatcherRegexCreator");
+
 const interpolate = (value, session = {}, options = {}) => {
-    //TODO
+    const { leftDelimiter, rightDelimiter } = options;
+    const regexp = stringMatcherRegexCreator(leftDelimiter, rightDelimiter);
+    const removeDelimiters = removeDelimitersCreator(
+        leftDelimiter,
+        rightDelimiter
+    );
+    return value.replace(regexp, (match) => {
+        return session[removeDelimiters(match)] || "";
+    });
 };
 
-module.exports = { interpolate }
+module.exports = { interpolate };
