@@ -2,7 +2,7 @@
   "name": "@chatlayer/code-tests",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./interpolate.js",
   "dependencies": {
     "jest": "^26.0.1"
   },
