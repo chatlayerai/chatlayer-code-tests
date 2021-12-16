@@ -24,7 +24,7 @@ const interpolate = (value, session = {}, options = {}) => {
   // Replace all variables with value of the variable.
   variables.forEach((variable) => {
     const variableWithDelimiter = `${leftDelimiter}${variable}${rightDelimiter}`;
-    const variableValue = session[variable] || '';
+    const variableValue = session[variable];
     result = result.replace(variableWithDelimiter, variableValue);
   });
   return result;
